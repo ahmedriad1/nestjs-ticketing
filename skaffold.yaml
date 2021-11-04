@@ -1,0 +1,70 @@
+apiVersion: skaffold/v2beta24
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  local:
+    push: false
+  artifacts:
+    - image: ahmedriad1/auth
+      context: auth
+      docker:
+        dockerfile: dev.Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: ahmedriad1/orders
+      context: orders
+      docker:
+        dockerfile: dev.Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: ahmedriad1/tickets
+      context: tickets
+      docker:
+        dockerfile: dev.Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: ahmedriad1/expiration
+      context: expiration
+      docker:
+        dockerfile: dev.Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: ahmedriad1/payments
+      context: payments
+      docker:
+        dockerfile: dev.Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: ahmedriad1/gateway
+      context: gateway
+      docker:
+        dockerfile: dev.Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: ahmedriad1/client
+      context: client
+      docker:
+        dockerfile: dev.Dockerfile
+      sync:
+        manual:
+          - src: '**/*.ts'
+            dest: .
+          - src: '**/*.tsx'
+            dest: .
+          - src: '**/*.css'
+            dest: .
