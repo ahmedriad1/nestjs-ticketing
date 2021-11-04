@@ -40,18 +40,19 @@
 
 ## **Steps to run the app:**
 
-1. Make sure you have Docker & Kubernets installed and running
+1. Make sure you have Docker & Kubernetes installed and running
 2. Make sure you have skaffold installed and running
-3. Set up Ingress-Nginx by running the following command:
 
-```sh
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.4/deploy/static/provider/cloud/deploy.yaml
-```
-
-4. Clone the project to your local machine
+3. Clone the project to your local machine
 
 ```sh
 git clone https://github.com/ahmed-riad-1/nestjs-ticketing ticketing-app
+```
+
+4. Set up Ingress-Nginx by running the following command:
+
+```sh
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.4/deploy/static/provider/cloud/deploy.yaml
 ```
 
 5. Set kubernetes secrets:
